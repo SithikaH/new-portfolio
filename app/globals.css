@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Use the deeper black for that premium feel */
+  --background: #050505; 
+  --foreground: #ffffff;
+  --accent-cyan: #36ecde;
+  --accent-purple: #b49bff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-cyan-custom: var(--accent-cyan);
+  --color-purple-custom: var(--accent-purple);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Use a cleaner font stack if you haven't imported Geist yet */
+  font-family: 'Inter', system-ui, sans-serif; 
+  overflow-x: hidden; /* Prevents accidental side-scrolling */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- 🚀 THE CYBER SCROLLBAR --- */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 6px; /* Very thin and professional */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222; /* Dark thumb by default */
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* Glows Cyan on hover to match your Tech Manifest headers */
+  background: var(--accent-cyan); 
+  box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+/* Firefox Support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #222 var(--background);
 }
