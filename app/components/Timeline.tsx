@@ -51,7 +51,7 @@ export default function BinaryTimeline() {
   const binaryMove = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
 
   return (
-    <section ref={containerRef} className="bg-[#050505] py-32 px-4 relative overflow-hidden">
+    <section ref={containerRef} className="bg-[#000000] py-32 px-4 relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative">
         
         {/* 📟 AUTHENTIC BINARY VERTICAL AXIS */}
@@ -69,7 +69,7 @@ export default function BinaryTimeline() {
               <motion.span 
                 key={i}
                 animate={{ opacity: [0.3, 1, 0.3] }}
-                transition={{ duration: Math.random() * 3 + 2, repeat: Infinity }}
+                transition={{ duration: 3, repeat: Infinity }}
               >
                 {bit}
               </motion.span>

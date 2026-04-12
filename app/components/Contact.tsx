@@ -152,8 +152,8 @@ export default function Contact() {
 
             <div className="flex flex-col gap-6">
               {[
-                { icon: <FiMail />, label: "Email", val: "yourgmail@gmail.com", href: "mailto:yourgmail@gmail.com" },
-                { icon: <FiGithub />, label: "GitHub", val: "yourusername", href: "https://github.com/yourusername" },
+                { icon: <FiMail />, label: "Email", val: "sithikahimandith11883@gmail.com", href: "sithikahimandith11883@gmail.com" },
+                { icon: <FiGithub />, label: "GitHub", val: "SithikaH", href: "https://github.com/yourusername" },
                 { icon: <FiLinkedin />, label: "LinkedIn", val: "yourname", href: "https://linkedin.com/in/yourname" },
               ].map((link, i) => (
                 <motion.a

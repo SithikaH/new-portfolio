@@ -22,22 +22,23 @@ const projectsData: Project[] = [
   {
     title: "Portfolio Website",
     description: "Personal portfolio built with Next.js, TypeScript and Tailwind CSS.",
-    image: "/projects/project1.png",
+    image: "/projects/portfolio.png",
     github: "https://github.com/yourusername/portfolio",
     live: "https://yourportfolio.com",
     tags: ["Next.js", "GSAP", "Tailwind"]
   },
   {
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce app with authentication and payment integration.",
-    image: "/projects/project2.png",
+    title: "Revoux",
+    description: "Designed and developed the official media unit page for Revoux of the Rotaract Club of the University of Kelaniya, focused on engaging new audiences and effectively showcasing creative work.",
+    image: "/projects/revoux.png",
     github: "https://github.com/yourusername/ecommerce",
+    live: "https://www.revoux.org/",
     tags: ["React", "PostgreSQL", "Docker"]
   },
   {
-    title: "UI Design System",
+    title: "NuroLabs",
     description: "Reusable UI component system with modern design principles.",
-    image: "/projects/project3.png",
+    image: "/projects/nurolabs.png",
     live: "https://designsystem.com",
     tags: ["Design", "Storybook"]
   },
@@ -97,7 +98,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="bg-[#050505] text-white py-32 px-6 md:px-16 border-t border-white/5">
+    <section id="projects" className="bg-[#000000] text-white py-32 px-6 md:px-16 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         
         {/* Animated Section Title */}

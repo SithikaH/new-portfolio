@@ -78,7 +78,7 @@ export default function Awards() {
   return (
     <section 
       ref={containerRef} 
-      className="bg-[#050505] text-white py-32 px-6 md:px-16 border-t border-white/5 overflow-hidden"
+      className="bg-[#000000] text-white py-32 px-6 md:px-16 border-t border-white/5 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         

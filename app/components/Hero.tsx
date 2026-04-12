@@ -40,7 +40,7 @@ export default function ScrollReveal() {
   const photoFade = useTransform(scrollYAbout, [0, 0.3], [0, 1]);
 
   return (
-    <div className="bg-[#050505] selection:bg-[#FF4500] selection:text-white">
+    <div className="bg-[#050505] selection:bg-[#36ecde] selection:text-white">
       
       {/* 🌌 SECTION 1: HERO REVEAL */}
       <section ref={heroRef} className="relative h-[500vh]">
@@ -130,9 +130,8 @@ export default function ScrollReveal() {
             </h2>
             
             <p className="text-gray-600 text-lg md:text-xl max-w-md leading-relaxed">
-              Crafting high-performance digital solutions by blending 
-              complex algorithms with space-grade aesthetics. 
-              Available for innovative collaborations.
+              Crafting high-performance digital experiences by combining strong
+              computational thinking with modern, visually driven design.
             </p>
           </motion.div>
 
@@ -163,3 +162,27 @@ export default function ScrollReveal() {
     </div>
   );
 }
+import GhostCursor from './GhostCursor'
+
+<div style={{ height: 600, position: 'relative' }}>
+  <GhostCursor
+    // Visuals
+    color="#00fbff"
+    brightness={2}
+    edgeIntensity={0}
+
+    // Trail and motion
+    trailLength={50}
+    inertia={0.5}
+
+    // Post-processing
+    grainIntensity={0.05}
+    bloomStrength={0.1}
+    bloomRadius={1}
+    bloomThreshold={0.025}
+
+    // Fade-out behavior
+    fadeDelayMs={1000}
+    fadeDurationMs={1500}
+  />
+</div>

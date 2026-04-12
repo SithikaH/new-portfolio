@@ -70,7 +70,7 @@ export default function TechStack() {
   }, []);
 
   return (
-    <section className="bg-[#050505] py-32 px-4 border-t border-white/5">
+    <section className="bg-[#000000] py-32 px-4 border-t border-white/5">
       <div className="max-w-6xl mx-auto">
         
         {/* Header Section */}
