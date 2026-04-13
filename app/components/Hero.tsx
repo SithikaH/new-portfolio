@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
+import ShinyText from './ShinyText';
 
 export default function ScrollReveal() {
   const heroRef = useRef(null);
@@ -40,10 +41,10 @@ export default function ScrollReveal() {
   const photoFade = useTransform(scrollYAbout, [0, 0.3], [0, 1]);
 
   return (
-    <div className="bg-[#050505] selection:bg-[#36ecde] selection:text-white">
+    <div className="bg-[#000000] selection:bg-[#36ecde] selection:text-white">
       
       {/* 🌌 SECTION 1: HERO REVEAL */}
-      <section ref={heroRef} className="relative h-[500vh]">
+      <section id="home" ref={heroRef} className="relative h-[500vh]">
         <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
           
           {/* 🖼️ THE REVEAL IMAGE */}
@@ -53,7 +54,7 @@ export default function ScrollReveal() {
           >
             <div className="relative w-full h-full max-w-7xl border border-white/5 overflow-hidden rounded-3xl">
               <Image
-                src="/image.jpg" // Place your reveal image in /public/image.jpg
+                src="/image.jpg"
                 alt="Vision"
                 fill
                 priority
@@ -74,10 +75,22 @@ export default function ScrollReveal() {
               style={{ scaleX: stretchX }}
               className="text-7xl md:text-[16rem] font-black uppercase leading-[0.8] tracking-tighter"
             >
-              DEVELOP
+              <ShinyText
+              text="DEVELOP"
+              speed={2}
+              delay={0}
+              color="#b5b5b5"
+              shineColor="#ffffff"
+              spread={120}
+              direction="left"
+              yoyo={false}
+              pauseOnHover={false}
+              disabled={false}
+            />
+            
             </motion.h1>
             <h2
-              className="text-transparent border-b-4 border-[#000000] text-xl md:text-4xl font-mono opacity-80 uppercase tracking-[0.6em]"
+              className="text-transparent   text-xl md:text-4xl font-mono opacity-80 uppercase tracking-[0.6em]"
               style={{ WebkitTextStroke: "2px #36ecde" }}
             >
               Visually Coded
@@ -104,9 +117,9 @@ export default function ScrollReveal() {
       </section>
 
       {/* 👤 SECTION 2: ABOUT (SIDE ENTRY) */}
-      <section  id="about"
+      <section id="about"
         ref={aboutRef} 
-        className="relative min-h-screen bg-black text-[#ffffff] flex items-center overflow-hidden p-10 md:p-20"
+        className="relative min-h-screen bg-[#000000] text-[#ffffff] flex items-center overflow-hidden p-10 md:p-20"
       >
         <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           
@@ -140,15 +153,14 @@ export default function ScrollReveal() {
             style={{ x: photoX, opacity: photoFade }}
             className="relative flex justify-center md:justify-end"
           >
-            <div className="relative w-full aspect-[4/5] max-w-[450px]">
-              {/* Decorative "Cyber" accents */}
+            <div className="relative w-full aspect-4/5 max-w-sm">
               <div className="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-[#36ecde]/30" />
               <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-[#36ecde]/30" />
               
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/myself.png" // Place your profile photo in /public/my-photo.jpg
-                  alt="Your Name"
+                  src="/myself.png"
+                  alt="Sithika"
                   fill
                   className="object-cover grayscale hover:grayscale-0 transition-all duration-1000 transform hover:scale-105"
                 />
@@ -157,32 +169,6 @@ export default function ScrollReveal() {
           </motion.div>
         </div>
       </section>
-
-      
     </div>
   );
 }
-import GhostCursor from './GhostCursor'
-
-<div style={{ height: 600, position: 'relative' }}>
-  <GhostCursor
-    // Visuals
-    color="#00fbff"
-    brightness={2}
-    edgeIntensity={0}
-
-    // Trail and motion
-    trailLength={50}
-    inertia={0.5}
-
-    // Post-processing
-    grainIntensity={0.05}
-    bloomStrength={0.1}
-    bloomRadius={1}
-    bloomThreshold={0.025}
-
-    // Fade-out behavior
-    fadeDelayMs={1000}
-    fadeDurationMs={1500}
-  />
-</div>

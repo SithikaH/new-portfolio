@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
-import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+import { EffectComposer } from 'three-stdlib';
+import { RenderPass } from 'three-stdlib';
+import { ShaderPass } from 'three-stdlib';
+import { UnrealBloomPass } from 'three-stdlib';
 
 type GhostCursorProps = {
   className?: string;
