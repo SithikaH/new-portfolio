@@ -10,7 +10,7 @@ import Projects from "./components/Projects";
 import Awards from "./components/Awards";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Last from "./components/Last";
+import Last from "./components/DesignProjects";
 
 
 // window, or complex scroll animations to prevent Hydration errors.

@@ -104,9 +104,9 @@ function AwardCard({ title, organization, year, description, image, imageAspect 
     >
       {/* Refined Image Section */}
       {image ? (
-        <div className="relative w-full h-32 overflow-hidden flex-shrink-0">
+        <div className="relative w-full h-32 overflow-hidden shrink-0">
           <Image src={image} alt={title} fill className="object-cover opacity-60 hover:opacity-100 transition-opacity duration-500" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0a] to-transparent" />
         </div>
       ) : (
         <div className="p-6 pb-0 text-[#36ecde]/20">
@@ -115,7 +115,7 @@ function AwardCard({ title, organization, year, description, image, imageAspect 
       )}
 
       {/* Content Section */}
-      <div className="p-6 flex flex-col flex-grow">
+      <div className="p-6 flex flex-col grow">
         <div className="flex justify-between items-start mb-4">
           <span className="text-[#36ecde] font-mono text-[10px] font-bold tracking-widest">{year}</span>
           <FiZap size={14} className="text-[#36ecde]/50" />

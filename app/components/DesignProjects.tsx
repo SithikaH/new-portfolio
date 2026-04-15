@@ -60,7 +60,7 @@ export default function Last() {
               fill 
               className="object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500" 
             />
-            <div className="absolute bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <div className="absolute bottom-0 p-4 bg-linear-to-t from-black/80 to-transparent w-full">
               <h4 className="text-sm font-bold text-white uppercase tracking-wider">{post.title}</h4>
             </div>
           </motion.div>
