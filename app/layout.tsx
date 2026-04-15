@@ -9,8 +9,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sit | Full Stack Developer",
-    template: "%s | Sit",
+    default: "Sithika Himandith | Creative Developer",
+    template: "%s | Sithika Himandith",
   },
   description:
     "Sit is a Full Stack Developer specializing in Next.js, TypeScript, and modern web applications.",
@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#0B0F14] text-white`}>
+      <body className={`${inter.className} bg-[#000000] text-white`}>
         {children}
       </body>
     </html>

@@ -43,6 +43,20 @@ const projectsData: Project[] = [
     live: "https://designsystem.com",
     tags: ["Design", "Storybook"]
   },
+  {
+    title: "Chatbot",
+    description: "Reusable UI component system with modern design principles.",
+    image: "/projects/",
+    live: "https://designsystem.com",
+    tags: ["Design", "Storybook"]
+  },
+  {
+    title: "AI LLM",
+    description: "Reusable UI component system with modern design principles.",
+    image: "/projects/",
+    live: "https://designsystem.com",
+    tags: ["Design", "Storybook"]
+  },
 ];
 
 export default function Projects() {
