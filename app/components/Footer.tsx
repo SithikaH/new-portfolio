@@ -27,12 +27,12 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* CENTER - Quick Links */}
+          {/* CENTER - Quick Links (Horizontal on Mobile) */}
           <div>
             <h3 className="text-[#36ecde] font-mono text-[11px] tracking-[0.3em] uppercase mb-8">
               // NAVIGATE
             </h3>
-            <ul className="space-y-4 text-gray-400 text-sm font-light">
+            <ul className="flex flex-row flex-wrap gap-x-6 gap-y-4 md:flex-col md:space-y-4 text-gray-400 text-sm font-light">
               {[
                 { name: "Home", href: "/" },
                 { name: "About", href: "#about" },
@@ -52,19 +52,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* RIGHT - Social Connect */}
+          {/* RIGHT - Social Connect (Horizontal on Mobile) */}
           <div>
             <h3 className="text-[#36ecde] font-mono text-[11px] tracking-[0.3em] uppercase mb-8">
               // CONNECT
             </h3>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-row flex-wrap gap-x-6 gap-y-4 md:flex-col md:gap-4">
               <a
                 href="https://github.com/yourusername"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm font-light"
               >
-                <FiGithub size={18} className="text-gray-600" /> GitHub
+                <FiGithub size={18} className="text-gray-600" /> <span className="hidden xs:inline">GitHub</span>
               </a>
               <a
                 href="https://linkedin.com/in/yourusername"
@@ -72,13 +72,13 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm font-light"
               >
-                <FiLinkedin size={18} className="text-gray-600" /> LinkedIn
+                <FiLinkedin size={18} className="text-gray-600" /> <span className="hidden xs:inline">LinkedIn</span>
               </a>
               <a
                 href="mailto:sithikahimandith11883@gmail.com"
                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm font-light"
               >
-                <FiMail size={18} className="text-gray-600" /> Email
+                <FiMail size={18} className="text-gray-600" /> <span className="hidden xs:inline">Email</span>
               </a>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[10px] font-mono text-gray-600 tracking-widest uppercase">
+          <p className="text-[10px] font-mono text-gray-600 tracking-widest uppercase text-center md:text-left">
             © {currentYear} SithiX // ALL_SYSTEMS_OPERATIONAL
           </p>
           <div className="flex gap-8">

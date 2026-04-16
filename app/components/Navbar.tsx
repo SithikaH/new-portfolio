@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react"; // ✅ added useRef
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -8,9 +8,30 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true); // ✅ new
+
+  const lastScrollY = useRef(0); // ✅ new
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 100);
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+
+      setScrolled(currentScroll > 100);
+
+      // ✅ ONLY desktop scroll behavior
+      if (window.innerWidth >= 768) {
+        if (currentScroll > lastScrollY.current && currentScroll > 100) {
+          // scrolling down
+          setShowNavbar(false);
+        } else {
+          // scrolling up
+          setShowNavbar(true);
+        }
+      }
+
+      lastScrollY.current = currentScroll;
+    };
+
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
       if (window.innerWidth >= 768) setIsOpen(false);
@@ -37,7 +58,6 @@ export default function Navbar() {
   const NavbarContent = (
     <nav className="relative z-50 bg-white/10 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2 flex items-center justify-between w-full max-w-[95%] shadow-2xl">
       
-      {/* Logo */}
       <div className="flex items-center gap-3 pl-2">
         <div className="w-10 h-10 rounded-full bg-[#36ecde] flex items-center justify-center overflow-hidden border border-white/20">
           <span className="text-black font-bold text-xs">Sithix</span>
@@ -47,7 +67,6 @@ export default function Navbar() {
         </span>
       </div>
 
-      {/* Links */}
       <div className="flex items-center gap-8 pr-1">
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.slice(0, 4).map((link) => (
@@ -69,7 +88,6 @@ export default function Navbar() {
           CONTACT
         </Link>
 
-        {/* Burger */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none"
@@ -89,21 +107,20 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* ✅ FIXED: Dropdown z-index */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            className="absolute z-999 top-16 left-0 right-0 bg-[#000000]/90 backdrop-blur-2xl border border-white/50 rounded-4xl p-6 flex flex-col items-center gap-6 md:hidden shadow-2xl"
+            className="absolute z-[999] top-16 left-0 right-0 bg-[#000000]/90 backdrop-blur-2xl border border-white/50 rounded-4xl p-6 flex flex-col items-center gap-6 md:hidden shadow-2xl"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-sm font-bold text-white/100 hover:text-[#36ecde] tracking-[0.2em] transition-all"
+                className="text-sm font-bold text-white hover:text-[#36ecde] tracking-[0.2em] transition-all"
               >
                 {link.name}
               </Link>
@@ -115,19 +132,18 @@ export default function Navbar() {
   );
 
   return (
-    // ✅ FIXED: proper z-index + click issues
-    <div className="fixed top-6 inset-x-0 z-999 flex justify-center px-6">
+    <div className="fixed top-6 inset-x-0 z-[999] flex justify-center px-6">
       <div className="w-full max-w-[95%]">
         {isMobile ? (
           NavbarContent
         ) : (
           <AnimatePresence>
-            {scrolled && (
+            {scrolled && showNavbar && ( // ✅ added showNavbar
               <motion.div
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -100, opacity: 0 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.4 }}
                 className="w-full flex justify-center"
               >
                 {NavbarContent}
