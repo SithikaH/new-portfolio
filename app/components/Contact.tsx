@@ -91,7 +91,7 @@ export default function Contact() {
                   className="w-full bg-[#0a0a0a] p-5 rounded-none border border-white/10 focus:border-[#36ecde] outline-none font-mono text-sm transition-all"
                   required
                 />
-                <div className="absolute bottom-0 left-0 w-0 h-px bg-[#36ecde] group-focus-within:w-full transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#36ecde] group-focus-within:w-full transition-all duration-500" />
               </div>
 
               <div className="group relative">
@@ -103,7 +103,7 @@ export default function Contact() {
                   className="w-full bg-[#0a0a0a] p-5 rounded-none border border-white/10 focus:border-[#36ecde] outline-none font-mono text-sm transition-all"
                   required
                 />
-                <div className="absolute bottom-0 left-0 w-0 h-px bg-[#36ecde] group-focus-within:w-full transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#36ecde] group-focus-within:w-full transition-all duration-500" />
               </div>
 
               <div className="group relative">
@@ -115,7 +115,7 @@ export default function Contact() {
                   className="w-full bg-[#0a0a0a] p-5 rounded-none border border-white/10 focus:border-[#36ecde] outline-none font-mono text-sm transition-all resize-none"
                   required
                 />
-                <div className="absolute bottom-0 left-0 w-0 h-px bg-[#36ecde] group-focus-within:w-full transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#36ecde] group-focus-within:w-full transition-all duration-500" />
               </div>
 
               <button

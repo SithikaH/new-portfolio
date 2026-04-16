@@ -132,12 +132,12 @@ export default function Projects() {
           <div ref={gridRef} className="relative">
             
             {/* Vertical Grid Lines (Bottom to Top) */}
-            <div className="absolute left-1/3 top-0 w-px hidden lg:block h-full bg-white/5 overflow-hidden z-10"><div className="line-v w-full bg-[#36ecde]/40 absolute bottom-0" /></div>
-            <div className="absolute left-2/3 top-0 w-px hidden lg:block h-full bg-white/5 overflow-hidden z-10"><div className="line-v w-full bg-[#36ecde]/40 absolute bottom-0" /></div>
+            <div className="absolute left-1/3 top-0 w-[1px] hidden lg:block h-full bg-white/5 overflow-hidden z-10"><div className="line-v w-full bg-[#36ecde]/40 absolute bottom-0" /></div>
+            <div className="absolute left-2/3 top-0 w-[1px] hidden lg:block h-full bg-white/5 overflow-hidden z-10"><div className="line-v w-full bg-[#36ecde]/40 absolute bottom-0" /></div>
 
             {/* Horizontal Grid Lines */}
-            <div className="absolute top-0 left-0 w-full h-px bg-white/5 overflow-hidden z-10"><div className="line-h h-full bg-[#36ecde]/40 absolute left-0" /></div>
-            <div className="absolute bottom-0 left-0 w-full h-px bg-white/5 overflow-hidden z-10"><div className="line-h h-full bg-[#36ecde]/40 absolute right-0" /></div>
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-white/5 overflow-hidden z-10"><div className="line-h h-full bg-[#36ecde]/40 absolute left-0" /></div>
+            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white/5 overflow-hidden z-10"><div className="line-h h-full bg-[#36ecde]/40 absolute right-0" /></div>
 
             {/* Grid Mapping */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10 overflow-hidden">
@@ -182,14 +182,14 @@ function ProjectCard({ title, description, image, github, live, tags, index }: P
       transition={{ delay: index * 0.1 }}
       className="bg-[#0a0a0a] group relative flex flex-col h-full overflow-hidden hover:bg-[#0c0c0c] transition-colors duration-500"
     >
-      <div className="absolute top-0 left-0 w-0 h-0.5 bg-[#36ecde] group-hover:w-full transition-all duration-700 z-30" />
+      <div className="absolute top-0 left-0 w-0 h-[2px] bg-[#36ecde] group-hover:w-full transition-all duration-700 z-30" />
 
       <div className="relative w-full aspect-video overflow-hidden border-b border-white/5">
         <Image src={image} alt={title} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
         <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" />
       </div>
 
-      <div className="p-8 flex flex-col justify-between grow">
+      <div className="p-8 flex flex-col justify-between flex-grow">
         <div>
           <div className="flex gap-2 mb-4">
             {tags.map((tag, i) => (

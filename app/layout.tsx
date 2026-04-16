@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Providers from "./providers"; // ✅ import wrapper
 import "./globals.css";
 
 const inter = Inter({
@@ -26,12 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-[#000000] text-white`}>
-        
-        {/* ✅ Wrap with client provider */}
-        <Providers>
-          {children}
-        </Providers>
-
+        {children}
       </body>
     </html>
   );
