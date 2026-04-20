@@ -59,7 +59,7 @@ export default function Footer() {
             </h3>
             <div className="flex flex-row flex-wrap gap-x-6 gap-y-4 md:flex-col md:gap-4">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/SithikaH"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm font-light"
@@ -67,7 +67,7 @@ export default function Footer() {
                 <FiGithub size={18} className="text-gray-600" /> <span className="hidden xs:inline">GitHub</span>
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/sithika-galappaththi-b4a36b295"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm font-light"
