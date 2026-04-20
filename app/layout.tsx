@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import ScrollRevealProvider from "./components/ScrollRevealProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,7 +26,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-[#000000] text-white`}>
-        {children}
+
+        {/* 🌟 GLOBAL SCROLL REVEAL */}
+        <ScrollRevealProvider />
+
+        {/* 🧱 MAIN CONTENT */}
+        <main className="relative z-10">
+          {children}
+        </main>
+
       </body>
     </html>
   );

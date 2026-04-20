@@ -79,7 +79,7 @@ export default function BinaryTimeline() {
           {/* Progress Overlay (The "Glow" line that follows the scroll) */}
           <motion.div 
             style={{ scaleY }}
-            className="absolute top-0 w-[2px] bg-gradient-to-b from-[#36ecde] to-violet-600 origin-top shadow-[0_0_15px_#FF4500]"
+            className="absolute top-0 w-[2px] bg-linear-to-b from-[#36ecde] to-violet-600 origin-top shadow-[0_0_15px_#FF4500]"
           />
         </div>
 

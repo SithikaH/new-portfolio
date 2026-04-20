@@ -1,58 +1,80 @@
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import Image from "next/image";
+
 export default function About() {
+  const aboutRef = useRef(null);
+
+  // --- ABOUT SCROLL LOGIC ---
+  const { scrollYProgress: scrollYAbout } = useScroll({
+    target: aboutRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Name slides from left, Photo from right
+  const nameX = useTransform(scrollYAbout, [0, 0.4], ["-100%", "0%"]);
+  const nameFade = useTransform(scrollYAbout, [0, 0.3], [0, 1]);
+  const photoX = useTransform(scrollYAbout, [0, 0.4], ["100%", "0%"]);
+  const photoFade = useTransform(scrollYAbout, [0, 0.3], [0, 1]);
+
   return (
     <section
       id="about"
-      className="bg-[#0B0F14] text-white py-28 px-6 md:px-16"
+      ref={aboutRef}
+      className="relative min-h-screen bg-[#000000] text-[#ffffff] flex items-center overflow-hidden p-10 md:p-20"
     >
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         
-        {/* LEFT SIDE */}
-        <div>
-          <p className="text-cyan-400 tracking-[0.3em] text-xs mb-6">
-            ABOUT ME
-          </p>
+        {/* ⬅️ NAME COMES FROM LEFT */}
+        <motion.div
+          style={{ x: nameX, opacity: nameFade }}
+          className="flex flex-col space-y-6"
+        >
+          <div className="space-y-2">
+            <h3 className="text-[#e6e9ec] font-mono font-bold tracking-widest uppercase text-sm">
+              // about me
+            </h3>
+            <div className="h-0.5 w-12 bg-[#36ecde]" />
+          </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-10">
-            A brief{" "}
-            <span className="text-cyan-400">introduction</span>
+          <h2 className="text-6xl md:text-[7rem] font-black uppercase leading-[0.85] tracking-tight">
+            Sithika <br />
+            <span
+              className="text-transparent border-b-4 "
+              style={{ WebkitTextStroke: "2px #36ecde" }}
+            >
+              Himandith
+            </span>
           </h2>
 
-          <p className="text-gray-400 leading-relaxed mb-6">
-            I'm a passionate developer and designer who loves building
-            things for the web. With expertise in modern front-end
-            technologies, UI/UX design, and a keen eye for detail.
+          <p className="text-gray-600 text-lg md:text-xl max-w-md leading-relaxed">
+            Crafting high-performance digital experiences by combining strong
+            computational thinking with modern, visually driven design.
           </p>
+        </motion.div>
 
-          <p className="text-gray-400 leading-relaxed">
-            I specialize in creating responsive, accessible, and performant
-            web applications that deliver exceptional user experiences.
-            I believe that great design and clean code go hand in hand.
-          </p>
-        </div>
+        {/* ➡️ PHOTO COMES FROM RIGHT */}
+        <motion.div
+          style={{ x: photoX, opacity: photoFade }}
+          className="relative flex justify-center md:justify-end"
+        >
+          <div className="relative w-full aspect-4/5 max-w-sm">
+            <div className="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-[#36ecde]/30" />
+            <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-[#36ecde]/30" />
 
-        {/* RIGHT SIDE - STATS */}
-        <div className="grid grid-cols-2 gap-8">
-          
-          <StatCard number="3+" label="Years Experience" />
-          <StatCard number="20+" label="Projects Completed" />
-          <StatCard number="10+" label="Certificates" />
-          <StatCard number="5+" label="Awards Won" />
-
-        </div>
+            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/myself.png"
+                alt="Sithika"
+                fill
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-1000 transform hover:scale-105"
+              />
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
-  );
-}
-
-function StatCard({ number, label }: { number: string; label: string }) {
-  return (
-    <div className="bg-[#11161C] p-8 rounded-2xl border border-gray-800 hover:border-cyan-400/40 transition duration-300">
-      <h3 className="text-3xl font-bold text-cyan-400 mb-3">
-        {number}
-      </h3>
-      <p className="text-gray-400 text-sm">
-        {label}
-      </p>
-    </div>
   );
 }
