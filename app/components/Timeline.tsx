@@ -40,15 +40,25 @@ export default function BinaryTimeline() {
   []);
 
   const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
+  target: containerRef,
+  offset: ["start end", "end start"],
+});
+
+// 🔥 Smooth scroll (same as Hero/About)
+const smoothScroll = useSpring(scrollYProgress, {
+  stiffness: 80,
+  damping: 20,
+  mass: 0.5,
+});
 
   // This spring makes the binary line growth feel "heavy" and smooth
-  const scaleY = useSpring(scrollYProgress, { stiffness: 50, damping: 20 });
-  
-  // As you scroll, the binary digits will move vertically
-  const binaryMove = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const scaleY = useSpring(smoothScroll, {
+  stiffness: 80,
+  damping: 20,
+  mass: 0.5,
+});
+
+const binaryMove = useTransform(smoothScroll, [0, 1], ["0%", "-20%"]);
 
   return (
     <section ref={containerRef} className="bg-[#000000] py-32 px-4 relative overflow-hidden">

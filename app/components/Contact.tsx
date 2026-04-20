@@ -152,9 +152,10 @@ export default function Contact() {
 
             <div className="flex flex-col gap-6">
               {[
-                { icon: <FiMail />, label: "Email", val: "sithikahimandith11883@gmail.com", href: "sithikahimandith11883@gmail.com" },
+                { icon: <FiMail />, label: "Email", val: "sithikahimandith11883@gmail.com", href: "mailto:sithikahimandith11883@gmail.com" },
                 { icon: <FiGithub />, label: "GitHub", val: "SithikaH", href: "https://github.com/SithikaH" },
-                { icon: <FiLinkedin />, label: "LinkedIn", val: "Sithika Galappaththi", href: "https://www.linkedin.com/in/sithika-galappaththi-b4a36b295?utm_source=share_via&utm_content=profile&utm_medium=member_androids" },
+                { icon: <FiLinkedin />, label: "LinkedIn", val: "Sithika Galappaththi", href: "https://www.linkedin.com/in/sithika-galappaththi-b4a36b295" },
+                
               ].map((link, i) => (
                 <motion.a
                   key={i}
