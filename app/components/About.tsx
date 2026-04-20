@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
@@ -13,11 +13,19 @@ export default function About() {
     offset: ["start end", "end start"],
   });
 
+  // 🔥 ADD THIS (smooth scroll)
+  const smoothScroll = useSpring(scrollYAbout, {
+    stiffness: 80,
+    damping: 20,
+    mass: 0.5,
+  });
+
   // Name slides from left, Photo from right
-  const nameX = useTransform(scrollYAbout, [0, 0.4], ["-100%", "0%"]);
-  const nameFade = useTransform(scrollYAbout, [0, 0.3], [0, 1]);
-  const photoX = useTransform(scrollYAbout, [0, 0.4], ["100%", "0%"]);
-  const photoFade = useTransform(scrollYAbout, [0, 0.3], [0, 1]);
+  const nameX = useTransform(smoothScroll, [0, 0.4], ["-100%", "0%"]);
+  const nameFade = useTransform(smoothScroll, [0, 0.3], [0, 1]);
+
+  const photoX = useTransform(smoothScroll, [0, 0.4], ["100%", "0%"]);
+  const photoFade = useTransform(smoothScroll, [0, 0.3], [0, 1]);
 
   return (
     <section
