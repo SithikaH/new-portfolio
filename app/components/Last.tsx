@@ -6,9 +6,9 @@ import Image from "next/image"; // 1. Added import
 
 // 2. Defined your data array
 const designPosts = [
-  { title: "Project Alpha", image: "/placeholder1.jpg" },
-  { title: "Brand Identity", image: "/placeholder2.jpg" },
-  { title: "UI Exploration", image: "/placeholder3.jpg" },
+  { title: "Logo Designing", image: "/logo.jpg" },
+  { title: "Graphic Design", image: "/graphic.jpg" },
+  { title: "Video Editing", image: "/placeholder3.jpg" },
 ];
 
 export default function Last() {

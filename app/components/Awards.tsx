@@ -45,6 +45,24 @@ const awardsData: Award[] = [
     size: "small",
     imageAspect: "portrait",
   },
+  {
+    title: "Basketball Team Member, SLUG XV",
+    organization: "SLUG XV  ",
+    year: "2025",
+    description: "Awarded for outstanding user experience design.",
+    size: "medium",
+    image: "/awards/basketball.jpg",
+    imageAspect: "square",
+  },
+  {
+    title: "Participate in KelaniXtream",
+    organization: "Hackothon ",
+    year: "2025",
+    description: "Awarded for outstanding user experience design.",
+    size: "medium",
+    image: "/awards/Kelanixtream.jpg",
+    imageAspect: "square",
+  },
 ];
 
 export default function Awards() {
