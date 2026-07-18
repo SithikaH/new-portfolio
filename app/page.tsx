@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 
 import Navbar from "./components/Navbar";
 import About from "./components/About";
+import ChatWidget from "./components/ChatWidget";
 import Techstack from "./components/Techstack";
 import Projects from "./components/Projects";
 import Last from "./components/Last";
@@ -33,6 +34,7 @@ export default function Home() {
       <main>
         {/* 1. Hero: Reserves 500vh immediately via the loading prop */}
         <Hero />
+        <ChatWidget />
         
         {/* 2. About: Standard import, renders right after Hero's space */}
         <About />
