@@ -21,8 +21,16 @@ type Award = {
 
 const awardsData: Award[] = [
   {
+    title: "Launch'26 1st Runners up",
+    organization: "IEEE CS Chapter - University of Kelaniya",
+    year: "2026",
+    description: "",
+    size: "medium",
+    image: "/awards/ieee.jpg",
+    imageAspect: "portrait",
+  },{
     title: "IdeaForge 2nd Runners up",
-    organization: "University of Kelaniya",
+    organization: "Computer Science Students' Association - University of Kelaniya",
     year: "2024",
     description: "Recognized for excellence in frontend architecture and UI innovation.",
     size: "large",

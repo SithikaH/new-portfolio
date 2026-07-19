@@ -35,28 +35,48 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
     });
   }, [messages, loading]);
 
-  const sendMessage = (question: string) => {
+  const sendMessage = async (question: string) => {
     const userMessage: Message = {
       role: "user",
       content: question,
     };
 
     setMessages((prev) => [...prev, userMessage]);
-
     setLoading(true);
 
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to fetch response");
+      }
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: data.answer,
+        },
+      ]);
+    } catch (err) {
+      console.error(err);
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
           content:
-            "🚀 This is a placeholder response.\n\nOnce the RAG backend is connected, I'll answer using your resume, portfolio, certificates, and projects.",
+            "⚠️ Unable to reach AI backend. Please ensure the backend server is running.",
         },
       ]);
-
+    } finally {
       setLoading(false);
-    }, 1200);
+    }
   };
 
   return (

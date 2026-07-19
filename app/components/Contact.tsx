@@ -154,7 +154,7 @@ export default function Contact() {
               {[
                 { icon: <FiMail />, label: "Email", val: "sithikahimandith11883@gmail.com", href: "mailto:sithikahimandith11883@gmail.com" },
                 { icon: <FiGithub />, label: "GitHub", val: "SithikaH", href: "https://github.com/SithikaH" },
-                { icon: <FiLinkedin />, label: "LinkedIn", val: "Sithika Galappaththi", href: "https://www.linkedin.com/in/sithika-galappaththi-b4a36b295" },
+                { icon: <FiLinkedin />, label: "LinkedIn", val: "Sithika Galappaththi", href: "https://www.linkedin.com/in/sithika-galappaththi/" },
                 
               ].map((link, i) => (
                 <motion.a

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle } from "lucide-react";
+import { Bot } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import ChatWindow from "./ChatWindow";
 
@@ -63,7 +63,7 @@ export default function ChatWidget() {
             justify-center
           "
         >
-          <MessageCircle size={24} />
+          <Bot size={24} />
         </button>
       )}
     </>

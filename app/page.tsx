@@ -45,7 +45,7 @@ export default function Home() {
         {/* 4. Rest of the static content */}
         <Techstack />
         <Projects />
-        <Last />
+        {/* <Last /> */}
         <Awards />
         <Contact />
         <Footer />

@@ -15,7 +15,7 @@ const timelineData = [
     desc: "Co-Digital Media Manager at the Computer Science Students’ Association, responsible for managing digital content and media platforms.",
   },
   {
-    year: "2022",
+    year: "2022 - Present",
     title: "University of Kelaniya",
     desc: "Currently an undergraduate in BSc Computer Science (Hons.) at the University of Kelaniya.",
   },

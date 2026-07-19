@@ -22,26 +22,26 @@ type Project = {
 const projectsData: Project[] = [
   {
     title: "Portfolio Website",
-    description: "Personal portfolio built with Next.js, TypeScript and Tailwind CSS.",
+    description: "An intelligent AI-powered portfolio assistant that uses Retrieval-Augmented Generation (RAG) to answer questions about my projects, skills, and experience. Built with Next.js, FastAPI, LangChain, ChromaDB, and Groq API for context-aware conversational interactions.",
     image: "/projects/portfolio.png",
-    github: "https://github.com/yourusername/portfolio",
-    live: "https://yourportfolio.com",
+    github: "https://github.com/SithikaH/new-portfolio",
+    live: "https://sithix-portfolio.vercel.app/",
     tags: ["Next.js", "GSAP", "Tailwind"]
   },
   {
     title: "Revoux",
-    description: "Designed and developed the official media unit page for Revoux of the Rotaract Club of the University of Kelaniya, focused on engaging new audiences and effectively showcasing creative work.",
+    description: "The official website for the Media Unit of the Rotaract Club of the University of Kelaniya, featuring a modern, responsive design with smooth animations and dynamic content management. Built to enhance the organization's digital presence and showcase its creative work.",
     image: "/projects/revoux.png",
-    github: "https://github.com/yourusername/ecommerce",
+    github: "https://github.com/RevouX-RACUOK/revoux-website",
     live: "https://www.revoux.org/",
-    tags: ["React", "PostgreSQL", "Docker"]
+    tags: ["React", "Next.js", "Tailwind"]
   },
   {
     title: "NuroLabs",
-    description: "Reusable UI component system with modern design principles.",
+    description: "A collaborative no-code machine learning platform that enables users to build and visualize ML models without programming. Developed with Electron.js, FastAPI, and Python to simplify machine learning for beginners through an intuitive desktop interface.",
     image: "/projects/nurolabs.png",
     live: "https://designsystem.com",
-    tags: ["Design", "Storybook"]
+    tags: ["ML", "vite", "Electron.js"]
   },
   {
     title: "Chatbot",
@@ -51,8 +51,8 @@ const projectsData: Project[] = [
     tags: ["Design", "Storybook"]
   },
   {
-    title: "AI LLM",
-    description: "Reusable UI component system with modern design principles.",
+    title: "GradeVisionAI – Student Performance Analytics Platform",
+    description: "An AI-powered student performance analytics platform that predicts GPA, identifies at-risk students, and provides interactive dashboards for academic insights. Built with Next.js, FastAPI, PostgreSQL, and Machine Learning to support data-driven educational decision-making.",
     image: "/projects/",
     live: "https://designsystem.com",
     tags: ["Design", "Storybook"]
