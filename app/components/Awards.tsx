@@ -32,7 +32,7 @@ const awardsData: Award[] = [
     title: "IdeaForge 2nd Runners up",
     organization: "Computer Science Students' Association - University of Kelaniya",
     year: "2024",
-    description: "Recognized for excellence in frontend architecture and UI innovation.",
+    description: "",
     size: "large",
     image: "/awards/ideaforge.jpg",
     imageAspect: "rectangle",
@@ -45,19 +45,12 @@ const awardsData: Award[] = [
     size: "medium",
     imageAspect: "square",
   },
-  {
-    title: "Hackathon Winner",
-    organization: "CodeFest",
-    year: "2022",
-    description: "Won 1st place among 100+ participants.",
-    size: "small",
-    imageAspect: "portrait",
-  },
+
   {
     title: "Basketball Team Member, SLUG XV",
     organization: "SLUG XV  ",
     year: "2025",
-    description: "Awarded for outstanding user experience design.",
+    description: "",
     size: "medium",
     image: "/awards/basketball.jpg",
     imageAspect: "square",
@@ -66,7 +59,7 @@ const awardsData: Award[] = [
     title: "Participate in KelaniXtream",
     organization: "Hackothon ",
     year: "2025",
-    description: "Awarded for outstanding user experience design.",
+    description: "",
     size: "medium",
     image: "/awards/Kelanixtream.jpg",
     imageAspect: "square",
@@ -131,7 +124,12 @@ function AwardCard({ title, organization, year, description, image, imageAspect 
       {/* Refined Image Section */}
       {image ? (
         <div className="relative w-full h-32 overflow-hidden flex-shrink-0">
-          <Image src={image} alt={title} fill className="object-cover opacity-60 hover:opacity-100 transition-opacity duration-500" />
+          <Image
+            src={image}
+            fill
+            alt={title}
+            className="object-cover transition-all duration-700 group-hover:scale-105"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
         </div>
       ) : (
