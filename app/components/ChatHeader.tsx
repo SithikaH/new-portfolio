@@ -4,9 +4,10 @@ import { Bot, Sparkles, X } from "lucide-react";
 
 interface ChatHeaderProps {
   onClose: () => void;
+  isOnline?: boolean;
 }
 
-export default function ChatHeader({ onClose }: ChatHeaderProps) {
+export default function ChatHeader({ onClose, isOnline = true }: ChatHeaderProps) {
   return (
     <div className="relative flex items-center justify-between px-5 py-4 border-b border-white/10 bg-gradient-to-r from-[#111827]/95 via-[#0B1220]/95 to-[#111827]/95 backdrop-blur-xl">
 
@@ -18,8 +19,13 @@ export default function ChatHeader({ onClose }: ChatHeaderProps) {
             <Bot size={22} className="text-white" />
           </div>
 
-          {/* Online Indicator */}
-          <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-green-500 border-2 border-[#111827]" />
+          {/* Online/Offline Indicator */}
+          <span
+            className={`absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-[#111827] transition-colors duration-300 ${
+              isOnline ? "bg-green-500" : "bg-red-500"
+            }`}
+            title={isOnline ? "Backend Connected" : "Backend Disconnected"}
+          />
         </div>
 
         <div>

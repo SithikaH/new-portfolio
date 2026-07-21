@@ -26,8 +26,23 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
   ]);
 
   const [loading, setLoading] = useState(false);
+  const [isOnline, setIsOnline] = useState<boolean>(true);
 
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkHealth = async () => {
+      try {
+        const res = await fetch("/api/health", { cache: "no-store" });
+        setIsOnline(res.ok);
+      } catch {
+        setIsOnline(false);
+      }
+    };
+    checkHealth();
+    const interval = setInterval(checkHealth, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({
@@ -54,9 +69,11 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
       const data = await res.json();
 
       if (!res.ok) {
+        setIsOnline(false);
         throw new Error(data.error || "Failed to fetch response");
       }
 
+      setIsOnline(true);
       setMessages((prev) => [
         ...prev,
         {
@@ -66,6 +83,7 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
       ]);
     } catch (err) {
       console.error(err);
+      setIsOnline(false);
       setMessages((prev) => [
         ...prev,
         {
@@ -108,7 +126,7 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
     >
       {/* Header */}
 
-      <ChatHeader onClose={onClose} />
+      <ChatHeader onClose={onClose} isOnline={isOnline} />
 
       {/* Suggested Questions */}
 

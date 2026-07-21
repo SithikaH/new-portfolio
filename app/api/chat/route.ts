@@ -12,7 +12,10 @@ export async function POST(req: Request) {
     }
 
     // Proxy request to Python FastAPI RAG backend
-    const fastApiUrl = process.env.FASTAPI_URL || "http://127.0.0.1:8000/ask";
+    let fastApiUrl = process.env.FASTAPI_URL || "http://127.0.0.1:8000/ask";
+    if (!fastApiUrl.endsWith("/ask")) {
+      fastApiUrl = fastApiUrl.replace(/\/+$/, "") + "/ask";
+    }
 
     const response = await fetch(fastApiUrl, {
       method: "POST",
