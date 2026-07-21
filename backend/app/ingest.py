@@ -35,6 +35,7 @@ def split_documents(documents):
 
 
 def ingest():
+    import shutil
 
     print("Loading documents...")
 
@@ -45,6 +46,19 @@ def ingest():
     chunks = split_documents(docs)
 
     print(f"Created {len(chunks)} chunks")
+
+    # Clear existing vector database if present
+    if Path(VECTOR_DB_PATH).exists():
+        print("Resetting existing vector database...")
+        try:
+            shutil.rmtree(VECTOR_DB_PATH)
+        except Exception as e:
+            print(f"Could not remove folder directly ({e}), clearing collection via Chroma API...")
+            try:
+                vstore = Chroma(persist_directory=VECTOR_DB_PATH, embedding_function=embeddings)
+                vstore.delete_collection()
+            except Exception as collection_err:
+                print(f"Collection reset warning: {collection_err}")
 
     Chroma.from_documents(
         documents=chunks,
